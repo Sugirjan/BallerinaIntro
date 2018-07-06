@@ -46,6 +46,18 @@ service<http:Service> Calculator bind listener {
             result = add(a, b);
         }
 
+        if(operation == "subtract" || operation == "-") {
+            result = subtract(a, b);
+        }
+
+        if(operation == "multiply" || operation == "*") {
+            result = multiply(a, b);
+        }
+
+        if(operation == "divide" || operation == "/") {
+            result = divide(a, b);
+        }
+
         // Create response message.
         json payload = { status: "Result of " + operation, result: 0.0 };
         payload["result"] = check <float>result;
